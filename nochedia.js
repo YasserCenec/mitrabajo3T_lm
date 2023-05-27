@@ -86,3 +86,8 @@ ajustesForm.addEventListener('submit', function (event) {
     usuario.value = '';
   }
 });
+
+// Limpiar sessionStorage cuando la página está a punto de ser recargada o cerrada
+window.addEventListener('beforeunload', function () {
+  sessionStorage.clear();
+});
