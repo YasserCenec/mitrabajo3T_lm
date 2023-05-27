@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox JS</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <script>
+        function crearNumero(id) {
+            const numero = document.createElement('div');
+            numero.className = 'numero';
+            numero.id = id;
+            numero.textContent = id;
+            return numero;
+        }
+
+        const posiciones = [
+            { top: '1em', left: '1em' },
+            { top: '1em', right: '1em' },
+            { top: '50%', left: '50%', transform: 'translate(-50%, -50%)' },
+            { bottom: '1em', right: '1em' },
+            { bottom: '1em', left: '1em' },
+        ];
+
+        for (let i = 1; i <= posiciones.length; i++) {
+            const numero = crearNumero(i);
+            Object.assign(numero.style, posiciones[i - 1]);
+            document.body.appendChild(numero);
+        }
+
+        const numeroElegido = parseInt(prompt("Escribe un número del 0 al 9:"));
+        const posicionElegida = parseInt(prompt("Escribe la posición donde quieres colocar el número (del 1 al 5):"));
+        const colorElegido = prompt("Escribe el color que quieras para la posición (rojo, azul, verde, naranja, morado o negro)");
+
+        const colores = {
+            'rojo': 'red',
+            'azul': 'blue',
+            'verde': 'green',
+            'naranja': 'orange',
+            'morado': 'purple',
+            'negro': 'black'
+        };
+
+        if (numeroElegido >= 0 && numeroElegido <= 9 && posicionElegida >= 1 && posicionElegida <= 5 && colorElegido in colores) {
+            const x = document.getElementById(posicionElegida);
+            x.innerHTML = `<pre>
+  ${numeroElegido}
+ ${numeroElegido}${numeroElegido}${numeroElegido}
+${numeroElegido}${numeroElegido}${numeroElegido}${numeroElegido}${numeroElegido}
+</pre>`;
+            x.style.backgroundColor = colores[colorElegido];
+        } else {
+            alert("Por favor, escribe valores correctos.");
+        }
+    </script>
+</body>
+
+</html>

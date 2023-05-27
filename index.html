@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header class="header">
+    <nav class="menu">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="https://yassercenec.github.io/Micancion_xml/">Mi Canción XML</a></li>
+        <li><a href="ajustes.html">Ajustes</a></li>
+        <li><a href="tateti.html">Juega TA-TE-TI</a></li>
+        <li><a href="otro.html">Otra Cosa</a></li>
+        <li><a href="#" id="openModal" class="trigger">Abrir Modal</a></li>
+      </ul>
+    </nav>
+  </header>
+  <button id="temaButton" class="tema-button">Cambiar modo</button>
+  <main>
+    <h1>Bienvenido a mi página</h1>
+    <div class="saludo-section">
+      <p>Esta es una página para mostrar el uso de menús persistentes, ajustes de tema y modales.</p>
+      <p>Explora las diferentes secciones y diviértete jugando al TA-TE-TI!</p>
+    </div>
+    <div class="cursor-ejemplo">
+      <h2>Ejemplos de cursores con imágenes personalizadas</h2>
+      <p>Pasa el ratón por encima de los botones para probar diferentes cursores.</p>
+      <div class="cursor-buttons">
+        <button class="cursor1">Cursor personalizado 1</button>
+        <button class="cursor2">Cursor personalizado 2</button>
+      </div>
+    </div>
+  </main>
+  <div class="modal">
+    <div class="modal-contenido">
+      <button class="cerrar-button">&times;</button>
+      <h2>Acerca de este proyecto</h2>
+      <p>Este proyecto ha sido realizado por el alumno <strong>Yasser</strong>, del curso <strong>1º DAM</strong>.</p>
+      <p>Aquí se han cumplido todas las obligaciones indicadas en la rúbrica del proyecto, incluyendo:</p>
+      <ul>
+        <li>Uso de menú persistente en todas las páginas</li>
+        <li>Tres páginas como mínimo</li>
+        <li>Uso de web storage para guardar ajustes entre sesiones</li>
+        <li>Uso de elementos XML y XSL</li>
+        <li>Uso de JavaScript para modificar contenidos de la página</li>
+        <li>Uso de elementos HTML de ingreso de datos</li>
+        <li>Nombre del usuario siempre visible en una de las esquinas del viewport</li>
+      </ul>
+    </div>
+  </div>
+  <div class="nombre-usuario-container" id="nombreUsuarioContainer"></div>
+  <script src="nochedia.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,253 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  font-size: 16px;
+  line-height: 1.5;
+  background: #eee;
+  padding: 20px;
+}
+
+.header {
+  background: #333;
+  color: #fff;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.menu {
+  position: relative;
+  z-index: 99;
+}
+
+.menu ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.menu li {
+  margin: 0 10px;
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  color: #ffd700;
+  text-decoration: underline;
+}
+
+.tema-button {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.theme-button:hover {
+  background-color: #ffd700;
+}
+
+h1 {
+  text-align: center;
+}
+
+.saludo-section {
+  margin: 20px auto;
+  text-align: center;
+  max-width: 600px;
+}
+
+.cursor-ejemplo {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.cursor-ejemplo h2 {
+  margin-bottom: 10px;
+}
+
+.cursor-ejemplo p {
+  margin-bottom: 20px;
+}
+
+.cursor-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cursor-buttons button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 20px 30px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 20px;
+}
+
+.cursor-buttons button:hover {
+  background-color: #ffd700;
+}
+
+.cursor1 {
+  cursor: url('./puntero.png'),auto !important;
+}
+
+.cursor2 {
+  cursor: url('./pompom.png'),auto !important;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-contenido {
+  background-color: #fefefe;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #888;
+  max-width: 600px;
+}
+
+.cerrar-button {
+  color: red;
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.tablero {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  width: 300px;
+  height: 300px;
+}
+
+.celda {
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 2em;
+}
+
+.info-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.info-container a {
+  text-decoration: none;
+  color: #333;
+}
+
+.info-container a:hover {
+  text-decoration: underline;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: #000;
+  text-decoration: none;
+}
+
+#nombreUsuarioContainer {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+#nombreUsuarioContainer span {
+  font-weight: bold;
+}
+
+.oscuro {
+  background-color: #333;
+  color: #fff;
+}
+
+.oscuro .header {
+  background-color: #111;
+}
+
+.oscuro .menu a {
+  color: #fff;
+}
+
+.oscuro .menu a:hover {
+  color: #ffd700;
+}
+
+.oscuro .tema-button {
+  background-color: #111;
+  color: #fff;
+}
+
+.oscuro .saludo-section {
+  color: #fff;
+}
+
+.oscuro .cursor-buttons button {
+  background-color: #111;
+}
+
+.oscuro .modal-content {
+  background-color: #111;
+  color: #fff;
+}
+
+.oscuro .close-button {
+  color: #fff;
+}
+
+.oscuro .celda {
+  background-color: #111;
+  color: #fff;
+}
+
+.oscuro .info-container a {
+  color: #fff;
+}
+
+.tema-button:hover {
+  background-color: #ffd700;
+}
+
+.oscuro #nombreUsuarioContainer {
+  background-color: #111;
+}
