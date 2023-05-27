@@ -56,7 +56,7 @@ window.addEventListener('click', function (event) {
 // Código para manejar el nombre del usuario
 const usuario = document.querySelector('#nombreUsuario');
 const nombreUsuarioContainer = document.querySelector('#nombreUsuarioContainer');
-let nombreUsuario = getCookie('nombreUsuario');
+let nombreUsuario = localStorage.getItem('nombreUsuario');
 
 if (nombreUsuario) {
   nombreUsuarioContainer.innerHTML = `Usuario: <span>${nombreUsuario}</span>`;
@@ -80,6 +80,7 @@ ajustesForm.addEventListener('submit', function (event) {
   if (nuevoNombreUsuario !== '') {
     // Actualizar el nombre de usuario en todas las páginas
     nombreUsuario = nuevoNombreUsuario;
+    localStorage.setItem('nombreUsuario', nombreUsuario);
     setCookie('nombreUsuario', nombreUsuario, 365);
 
     // Limpiar el campo de entrada
