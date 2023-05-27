@@ -56,7 +56,7 @@ window.addEventListener('click', function (event) {
 // Código para manejar el nombre del usuario
 const usuario = document.querySelector('#nombreUsuario');
 const nombreUsuarioContainer = document.querySelector('#nombreUsuarioContainer');
-let nombreUsuario = localStorage.getItem('nombreUsuario');
+let nombreUsuario = sessionStorage.getItem('nombreUsuario');
 
 if (nombreUsuario) {
   nombreUsuarioContainer.innerHTML = `Usuario: <span>${nombreUsuario}</span>`;
@@ -69,16 +69,6 @@ usuario.addEventListener('input', () => {
   nombreUsuarioContainer.innerHTML = `Usuario: <span>${usuario.value}</span>`;
 });
 
-// Obtener el nombre de usuario de la cookie si no se encuentra en localStorage
-if (!nombreUsuario) {
-  nombreUsuario = getCookie('nombreUsuario');
-  if (nombreUsuario) {
-    nombreUsuarioContainer.innerHTML = `Usuario: <span>${nombreUsuario}</span>`;
-    usuario.value = nombreUsuario;
-    localStorage.setItem('nombreUsuario', nombreUsuario);
-  }
-}
-
 // Capturar el evento de envío del formulario
 const ajustesForm = document.querySelector('#ajustesForm');
 ajustesForm.addEventListener('submit', function (event) {
@@ -90,34 +80,9 @@ ajustesForm.addEventListener('submit', function (event) {
   if (nuevoNombreUsuario !== '') {
     // Actualizar el nombre de usuario en todas las páginas
     nombreUsuario = nuevoNombreUsuario;
-    localStorage.setItem('nombreUsuario', nombreUsuario);
-    setCookie('nombreUsuario', nombreUsuario, 365);
+    sessionStorage.setItem('nombreUsuario', nombreUsuario);
 
     // Limpiar el campo de entrada
     usuario.value = '';
   }
-});
-
-// Funciones para manejar las cookies
-function setCookie(name, value, days) {
-  const expires = new Date();
-  expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
-  document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
-}
-
-function getCookie(name) {
-  const cookies = document.cookie.split(';');
-  for (let i = 0; i < cookies.length; i++) {
-    const cookie = cookies[i].trim();
-    if (cookie.startsWith(name + '=')) {
-      return cookie.substring(name.length + 1);
-    }
-  }
-  return '';
-}
-
-// Eliminar la sesión al recargar la página
-window.addEventListener('beforeunload', function () {
-  localStorage.removeItem('nombreUsuario');
-  document.cookie = 'nombreUsuario=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;';
 });
