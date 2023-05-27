@@ -56,7 +56,7 @@ window.addEventListener('click', function (event) {
 // Código para manejar el nombre del usuario
 const usuario = document.querySelector('#nombreUsuario');
 const nombreUsuarioContainer = document.querySelector('#nombreUsuarioContainer');
-let nombreUsuario = getCookie('nombreUsuario');
+let nombreUsuario = localStorage.getItem('nombreUsuario');
 
 if (nombreUsuario) {
   nombreUsuarioContainer.innerHTML = `Usuario: <span>${nombreUsuario}</span>`;
@@ -80,32 +80,14 @@ ajustesForm.addEventListener('submit', function (event) {
   if (nuevoNombreUsuario !== '') {
     // Actualizar el nombre de usuario en todas las páginas
     nombreUsuario = nuevoNombreUsuario;
-    setCookie('nombreUsuario', nombreUsuario, 365);
+    localStorage.setItem('nombreUsuario', nombreUsuario);
 
     // Limpiar el campo de entrada
     usuario.value = '';
   }
 });
 
-// Funciones para manejar las cookies
-function setCookie(name, value, days) {
-  const expires = new Date();
-  expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
-  document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
-}
-
-function getCookie(name) {
-  const cookies = document.cookie.split(';');
-  for (let i = 0; i < cookies.length; i++) {
-    const cookie = cookies[i].trim();
-    if (cookie.startsWith(name + '=')) {
-      return cookie.substring(name.length + 1);
-    }
-  }
-  return '';
-}
-
-// Eliminar la cookie del nombre de usuario al cerrar la página
+// Eliminar el nombre de usuario al cerrar la página
 window.addEventListener('beforeunload', function () {
-  document.cookie = 'nombreUsuario=;expires=Thu, 01 Jan 2030 00:00:00 UTC;path=/;';
+  localStorage.removeItem('nombreUsuario');
 });
