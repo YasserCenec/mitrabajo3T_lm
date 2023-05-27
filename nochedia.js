@@ -107,5 +107,5 @@ function getCookie(name) {
 
 // Eliminar la cookie del nombre de usuario al cerrar la página
 window.addEventListener('beforeunload', function () {
-  document.cookie = 'nombreUsuario=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;';
+  document.cookie = 'nombreUsuario=;expires=Thu, 01 Jan 2050 00:00:00 UTC;path=/;';
 });
