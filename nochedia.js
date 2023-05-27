@@ -115,3 +115,9 @@ function getCookie(name) {
   }
   return '';
 }
+
+// Eliminar el nombre de usuario al recargar la página
+window.addEventListener('beforeunload', function () {
+  sessionStorage.removeItem('nombreUsuario');
+  document.cookie = 'nombreUsuario=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;';
+});
