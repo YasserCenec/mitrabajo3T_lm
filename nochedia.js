@@ -69,6 +69,16 @@ usuario.addEventListener('input', () => {
   nombreUsuarioContainer.innerHTML = `Usuario: <span>${usuario.value}</span>`;
 });
 
+// Obtener el nombre de usuario de la cookie si no se encuentra en localStorage
+if (!nombreUsuario) {
+  nombreUsuario = getCookie('nombreUsuario');
+  if (nombreUsuario) {
+    nombreUsuarioContainer.innerHTML = `Usuario: <span>${nombreUsuario}</span>`;
+    usuario.value = nombreUsuario;
+    localStorage.setItem('nombreUsuario', nombreUsuario);
+  }
+}
+
 // Capturar el evento de envío del formulario
 const ajustesForm = document.querySelector('#ajustesForm');
 ajustesForm.addEventListener('submit', function (event) {
