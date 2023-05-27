@@ -56,7 +56,7 @@ window.addEventListener('click', function (event) {
 // Código para manejar el nombre del usuario
 const usuario = document.querySelector('#nombreUsuario');
 const nombreUsuarioContainer = document.querySelector('#nombreUsuarioContainer');
-let nombreUsuario = localStorage.getItem('nombreUsuario');
+let nombreUsuario = sessionStorage.getItem('nombreUsuario');
 
 if (nombreUsuario) {
   nombreUsuarioContainer.innerHTML = `Usuario: <span>${nombreUsuario}</span>`;
@@ -69,13 +69,13 @@ usuario.addEventListener('input', () => {
   nombreUsuarioContainer.innerHTML = `Usuario: <span>${usuario.value}</span>`;
 });
 
-// Obtener el nombre de usuario de la cookie si no se encuentra en localStorage
+// Obtener el nombre de usuario de la cookie si no se encuentra en sessionStorage
 if (!nombreUsuario) {
   nombreUsuario = getCookie('nombreUsuario');
   if (nombreUsuario) {
     nombreUsuarioContainer.innerHTML = `Usuario: <span>${nombreUsuario}</span>`;
     usuario.value = nombreUsuario;
-    localStorage.setItem('nombreUsuario', nombreUsuario);
+    sessionStorage.setItem('nombreUsuario', nombreUsuario);
   }
 }
 
@@ -90,7 +90,7 @@ ajustesForm.addEventListener('submit', function (event) {
   if (nuevoNombreUsuario !== '') {
     // Actualizar el nombre de usuario en todas las páginas
     nombreUsuario = nuevoNombreUsuario;
-    localStorage.setItem('nombreUsuario', nombreUsuario);
+    sessionStorage.setItem('nombreUsuario', nombreUsuario);
     setCookie('nombreUsuario', nombreUsuario, 365);
 
     // Limpiar el campo de entrada
@@ -115,8 +115,3 @@ function getCookie(name) {
   }
   return '';
 }
-
-// Eliminar la cookie del nombre de usuario al cerrar la página
-window.addEventListener('beforeunload', function () {
-  document.cookie = 'nombreUsuario=;expires=Thu, 01 Jan 2050 00:00:00 UTC;path=/;';
-});
