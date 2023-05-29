@@ -9,7 +9,19 @@
 </head>
 
 <body>
-  <h1>Finaliza el juego para acceder a "Más información"</a></h1>
+  <header class="header">
+    <nav class="menu">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="https://yassercenec.github.io/Micancion_xml/">Mi Canción XML</a></li>
+        <li><a href="ajustes.html">Ajustes</a></li>
+        <li><a href="tateti.html">Juega TA-TE-TI</a></li>
+        <li><a href="#" id="openModal" class="trigger">Abrir Modal</a></li>
+      </ul>
+    </nav>
+  </header>
+  <button id="temaButton" class="tema-button">Cambiar modo</button>
+  <h1>Finaliza el juego para acceder a "Más información"</h1>
   <div class="tablero" id="tablero"></div>
   <div class="info-container">
     <p>
@@ -17,6 +29,25 @@
     </p>
   </div>
   <div class="nombre-usuario-container" id="nombreUsuarioContainer"></div>
+  
+  <div class="modal">
+    <div class="modal-contenido">
+      <button class="cerrar-button">&times;</button>
+      <h2>Acerca de este proyecto</h2>
+      <p>Este proyecto ha sido realizado por el alumno <strong>Yasser</strong>, del curso <strong>1º DAM</strong>.</p>
+      <p>Aquí se han cumplido todas las obligaciones indicadas en la rúbrica del proyecto, incluyendo:</p>
+      <ul>
+        <li>Uso de menú persistente en todas las páginas</li>
+        <li>Tres páginas como mínimo</li>
+        <li>Uso de web storage para guardar ajustes entre sesiones</li>
+        <li>Uso de elementos XML y XSL</li>
+        <li>Uso de JavaScript para modificar contenidos de la página</li>
+        <li>Uso de elementos HTML de ingreso de datos</li>
+        <li>Nombre del usuario siempre visible en una de las esquinas del viewport</li>
+      </ul>
+    </div>
+  </div>
+  
   <script src="nochedia.js"></script>
   <script src="script.js"></script>
 </body>

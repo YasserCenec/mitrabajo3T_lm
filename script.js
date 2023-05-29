@@ -71,6 +71,7 @@ function verificarGanador() {
     const [a, b, c] = condicion;
     if (valoresCeldas[a] && valoresCeldas[a] === valoresCeldas[b] && valoresCeldas[a] === valoresCeldas[c]) {
       alert(`¡El jugador ${valoresCeldas[a]} ganó la partida!`);
+      toggleModal(); // Abre el modal al haber un ganador
       break;
     }
   }
@@ -79,5 +80,4 @@ function verificarGanador() {
     event.preventDefault();
     alert('Yasser, 1º DAM\nTA-TE-TI');
   });
-  
 }

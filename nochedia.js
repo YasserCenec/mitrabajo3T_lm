@@ -91,3 +91,55 @@ ajustesForm.addEventListener('submit', function (event) {
 window.addEventListener('beforeunload', function () {
   sessionStorage.clear();
 });
+
+// Obtener los elementos del formulario de ajustes
+const colorTemaInput = document.getElementById('colorTema');
+const tamanoTextoInput = document.getElementById('tamanoTexto');
+const tipoLetraSelect = document.getElementById('tipoLetra');
+
+// Función para aplicar los estilos según los ajustes guardados
+function aplicarAjustes() {
+  // Obtener los valores de los ajustes
+  const colorTema = colorTemaInput.value;
+  const tamanoTexto = tamanoTextoInput.value + 'px';
+  const tipoLetra = tipoLetraSelect.value;
+
+  // Aplicar los estilos en el body y otros elementos relevantes
+  document.body.style.color = colorTema;
+  document.body.style.fontSize = tamanoTexto;
+  document.body.style.fontFamily = tipoLetra;
+  // ...
+}
+
+// Obtener los ajustes guardados (si existen) y aplicarlos
+const ajustesGuardados = JSON.parse(localStorage.getItem('ajustes'));
+if (ajustesGuardados) {
+  colorTemaInput.value = ajustesGuardados.colorTema;
+  tamanoTextoInput.value = ajustesGuardados.tamanoTexto;
+  tipoLetraSelect.value = ajustesGuardados.tipoLetra;
+  aplicarAjustes();
+}
+
+// Manejar el evento de cambio en los ajustes
+ajustesForm.addEventListener('change', function(event) {
+  aplicarAjustes();
+
+  // Guardar los ajustes en el local storage
+  const ajustes = {
+    colorTema: colorTemaInput.value,
+    tamanoTexto: tamanoTextoInput.value,
+    tipoLetra: tipoLetraSelect.value
+  };
+  localStorage.setItem('ajustes', JSON.stringify(ajustes));
+});
+
+// Leer y modificar contenidos de la página web
+document.addEventListener('DOMContentLoaded', function() {
+  // Leer el contenido de un elemento
+  const contenido = document.getElementById('nombreElemento').innerHTML;
+  console.log('Contenido actual:', contenido);
+
+  // Modificar el contenido de un elemento
+  document.getElementById('nombreElemento').innerHTML = 'Nuevo contenido';
+  console.log('Contenido modificado:', document.getElementById('nombreElemento').innerHTML);
+});

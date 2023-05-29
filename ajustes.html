@@ -15,8 +15,7 @@
         <li><a href="index.html">Inicio</a></li>
         <li><a href="https://yassercenec.github.io/Micancion_xml/">Mi Canción XML</a></li>
         <li><a href="ajustes.html">Ajustes</a></li>
-        <li><a href="tateti.html">TA-TE-TI</a></li>
-        <li><a href="otro.html">Otra Cosa</a></li>
+        <li><a href="tateti.html">Juega TA-TE-TI</a></li>
         <li><a href="#" id="openModal" class="trigger">Abrir Modal</a></li>
       </ul>
     </nav>
@@ -27,11 +26,49 @@
     <form id="ajustesForm">
       <label for="nombreUsuario">Nombre de Usuario:</label>
       <input type="text" id="nombreUsuario" name="nombreUsuario">
-      <h4>(Presiona Enter para guardar el usuario)</h4>
+      <br>
+      <br>
+      <label for="colorTema">Color de Tema:</label>
+      <input type="color" id="colorTema" name="colorTema">
+      <br>
+      <br>
+      <label for="tamanoTexto">Tamaño del Texto:</label>
+      <input type="range" id="tamanoTexto" name="tamanoTexto" min="10" max="24" step="2">
+      <br>
+      <br>
+      <label for="tipoLetra">Tipo de Letra:</label>
+      <select id="tipoLetra" name="tipoLetra">
+        <option value="Arial">Arial</option>
+        <option value="Verdana">Verdana</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Times New Roman">Times New Roman</option>
+      </select>
+      <br>
+      <br>
+      <label for="notificaciones">Notificaciones:</label>
+      <input type="checkbox" id="notificaciones" name="notificaciones">
+      <br>
+      <br>
+      <label for="idioma">Idioma:</label>
+      <select id="idioma" name="idioma">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+        <option value="de">Deutsch</option>
+      </select>
+      <br>
+      <br>
+      <label for="acceso">Nivel de acceso:</label>
+      <input type="radio" id="acceso-basico" name="acceso" value="basico">
+      <label for="acceso-basico">Básico</label>
+      <input type="radio" id="acceso-premium" name="acceso" value="premium">
+      <label for="acceso-premium">Avanzado</label>
+      <br>
+      <br>
+      <h4>(Presiona Enter para guardar los ajustes)</h4>
     </form>
     <div class="nombre-usuario-container" id="nombreUsuarioContainer"></div>
-    <h3>El usuario se eliminará, solo si recargas la página.</h3>
-
+    <h3>El usuario se eliminará solo si recargas la página.</h3>
   </main>
   <div class="modal">
     <div class="modal-contenido">

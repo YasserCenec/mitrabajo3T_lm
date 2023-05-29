@@ -17,21 +17,23 @@ body {
   background: #333;
   color: #fff;
   padding: 10px 0;
-  position: sticky;
+  position: fixed;
   top: 0;
+  width: 100%;
   z-index: 100;
 }
 
 .menu {
-  position: relative;
-  z-index: 99;
+  display: flex;
+  justify-content: center;
 }
 
 .menu ul {
-  display: flex;
-  justify-content: center;
   list-style: none;
   padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .menu li {
@@ -60,7 +62,7 @@ body {
   transition: background-color 0.3s ease;
 }
 
-.theme-button:hover {
+.tema-button:hover {
   background-color: #ffd700;
 }
 
@@ -109,11 +111,11 @@ h1 {
 }
 
 .cursor1 {
-  cursor: url('./puntero.png'),auto !important;
+  cursor: url('./puntero.png'), auto !important;
 }
 
 .cursor2 {
-  cursor: url('./pompom.png'),auto !important;
+  cursor: url('./pompom.png'), auto !important;
 }
 
 .modal {
@@ -226,12 +228,12 @@ h1 {
   background-color: #111;
 }
 
-.oscuro .modal-content {
+.oscuro .modal-contenido {
   background-color: #111;
   color: #fff;
 }
 
-.oscuro .close-button {
+.oscuro .cerrar-button {
   color: #fff;
 }
 
@@ -250,4 +252,8 @@ h1 {
 
 .oscuro #nombreUsuarioContainer {
   background-color: #111;
+}
+
+#tipoLetra {
+  margin-bottom: 10px;
 }
