@@ -87,11 +87,6 @@ ajustesForm.addEventListener('submit', function (event) {
   }
 });
 
-// Limpiar sessionStorage cuando la página está a punto de ser recargada o cerrada
-window.addEventListener('beforeunload', function () {
-  sessionStorage.clear();
-});
-
 // Obtener los elementos del formulario de ajustes
 const colorTemaInput = document.getElementById('colorTema');
 const tamanoTextoInput = document.getElementById('tamanoTexto');
