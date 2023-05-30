@@ -137,4 +137,18 @@ document.addEventListener('DOMContentLoaded', function() {
   // Modificar el contenido de un elemento
   document.getElementById('nombreElemento').innerHTML = 'Nuevo contenido';
   console.log('Contenido modificado:', document.getElementById('nombreElemento').innerHTML);
+  
+  // Nuevas funcionalidades: leer y modificar el título de la página
+  console.log('Título actual de la página:', document.title);
+  document.title = 'Nuevo Título';
+  console.log('Título modificado de la página:', document.title);
+  
+  const parrafo = document.querySelector('p'); // Obtén el primer párrafo en la página
+  if (parrafo) { // Verifica si el párrafo existe
+    console.log('Contenido del párrafo:', parrafo.textContent);
+    parrafo.textContent = 'Este es un nuevo párrafo.';
+    console.log('Contenido modificado del párrafo:', parrafo.textContent);
+  } else {
+    console.log('No se encontró ningún párrafo en la página.');
+  }
 });
