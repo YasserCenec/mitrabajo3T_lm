@@ -273,4 +273,8 @@ h1 {
   bottom: 20px;
   left: 20px;
 }
-/* no esta bien el boton*/
+
+.menu a.active {
+  color: #ffd700;
+  text-decoration: underline;
+}
