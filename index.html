@@ -56,18 +56,6 @@
   <div class="nombre-usuario-container" id="nombreUsuarioContainer"></div>
   <script src="nochedia.js"></script>
   <script src="script.js"></script>
-  <script>
-    // Obtener los ajustes guardados
-    const ajustesGuardados = JSON.parse(localStorage.getItem('ajustes'));
-  
-    if (ajustesGuardados) {
-      // Aplicar los ajustes guardados al cargar la página
-      document.body.style.color = ajustesGuardados.colorTema;
-      document.body.style.fontSize = ajustesGuardados.tamanoTexto;
-      document.body.style.fontFamily = ajustesGuardados.tipoLetra;
-    }
-  </script>  
-
 </body>
 
 </html>

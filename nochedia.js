@@ -25,13 +25,40 @@ darkModeToggle.addEventListener('click', () => {
   }
 });
 
-// Código para manejar el nombre de usuario
+// Obtiene el modal, el botón que abre el modal y el botón que cierra el modal
+const modal = document.querySelector('.modal');
+const trigger = document.querySelector('#openModal');
+const closeButton = document.querySelector('.cerrar-button');
+
+// Función que muestra el modal
+function toggleModal() {
+  modal.style.display = 'block';
+}
+
+// Función que cierra el modal
+function closeModal() {
+  modal.style.display = 'none';
+}
+
+// Para abrir el modal
+trigger.addEventListener('click', toggleModal);
+
+// Para cerrar el modal
+closeButton.addEventListener('click', closeModal);
+
+// Para cerrar el modal al hacer clic fuera del contenido
+window.addEventListener('click', function (event) {
+  if (event.target === modal) {
+    closeModal();
+  }
+});
+
+// Código para manejar el nombre del usuario
 const usuario = document.querySelector('#nombreUsuario');
 const nombreUsuarioContainer = document.querySelector('#nombreUsuarioContainer');
 let nombreUsuario = sessionStorage.getItem('nombreUsuario');
 
 if (nombreUsuario) {
-  // Aplicar el nombre de usuario guardado al cargar la página
   nombreUsuarioContainer.innerHTML = `Usuario: <span>${nombreUsuario}</span>`;
   usuario.value = nombreUsuario;
 } else {
@@ -39,9 +66,30 @@ if (nombreUsuario) {
 }
 
 usuario.addEventListener('input', () => {
-  // Actualizar el nombre de usuario en sessionStorage al escribir en el campo
   nombreUsuarioContainer.innerHTML = `Usuario: <span>${usuario.value}</span>`;
-  sessionStorage.setItem('nombreUsuario', usuario.value);
+});
+
+// Capturar el evento de envío del formulario
+const ajustesForm = document.querySelector('#ajustesForm');
+ajustesForm.addEventListener('submit', function (event) {
+  event.preventDefault(); // Evitar el envío del formulario
+
+  // Obtener el valor del nombre de usuario del campo de entrada
+  const nuevoNombreUsuario = usuario.value.trim();
+
+  if (nuevoNombreUsuario !== '') {
+    // Actualizar el nombre de usuario en todas las páginas
+    nombreUsuario = nuevoNombreUsuario;
+    sessionStorage.setItem('nombreUsuario', nombreUsuario);
+
+    // Limpiar el campo de entrada
+    usuario.value = '';
+  }
+});
+
+// Limpiar sessionStorage cuando la página está a punto de ser recargada o cerrada
+window.addEventListener('beforeunload', function () {
+  sessionStorage.clear();
 });
 
 // Obtener los elementos del formulario de ajustes
@@ -60,14 +108,7 @@ function aplicarAjustes() {
   document.body.style.color = colorTema;
   document.body.style.fontSize = tamanoTexto;
   document.body.style.fontFamily = tipoLetra;
-
-  // Guardar los ajustes en el almacenamiento local
-  const ajustes = {
-    colorTema: colorTema,
-    tamanoTexto: tamanoTexto,
-    tipoLetra: tipoLetra
-  };
-  localStorage.setItem('ajustes', JSON.stringify(ajustes));
+  // ...
 }
 
 // Obtener los ajustes guardados (si existen) y aplicarlos
@@ -80,9 +121,8 @@ if (ajustesGuardados) {
 }
 
 // Manejar el evento de cambio en los ajustes
-const ajustesForm = document.querySelector('#ajustesForm');
-ajustesForm.addEventListener('change', aplicarAjustes);
-
+ajustesForm.addEventListener('change', function(event) {
+  aplicarAjustes();
 
   // Guardar los ajustes en el local storage
   const ajustes = {
@@ -91,6 +131,7 @@ ajustesForm.addEventListener('change', aplicarAjustes);
     tipoLetra: tipoLetraSelect.value
   };
   localStorage.setItem('ajustes', JSON.stringify(ajustes));
+});
 
 // Leer y modificar contenidos de la página web
 document.addEventListener('DOMContentLoaded', function() {
